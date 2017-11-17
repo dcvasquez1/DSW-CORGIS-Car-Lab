@@ -5,7 +5,7 @@
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			
-			<link rel="stylesheet" media="all" href="/assets/base/bootstrap.css"  type="text/css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 			<link rel="stylesheet" type="text/css" href="../static/web.css">
 			
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,6 +13,28 @@
 		</head>
 
 		<body>
+		<!-- Nav Bar -->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href=".">Car Data</a>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavBar">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href=".">Introduction</a></li>
+							<li><a href="company">Data By Company</a></li>
+							<li><a href="year">Data By Year</a></li>
+							<li><a href="graph">MPG Graph</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		
 			<h1>Introduction</h1>
 			<p>
 				This data set pertains to the specifications of a wide variety of automobiles. One of the specifications that can easily be compared among different cars is the the gas efficiency of the car or MPG either on the highway or in the city. Interestingly, only 15% of cars are chosen go through EPA certification tests for the MPG recordings given by the manufacturer. That means that 85% of advertised mileage records come from the manufacturer.
@@ -32,26 +54,5 @@
 				<a href=https://www.edmunds.com/fuel-economy/heres-why-real-world-mpg-doesnt-match-epa-ratings.html>https://www.edmunds.com/fuel-economy/heres-why-real-world-mpg-doesnt-match-epa-ratings.html</a>
 			</p>
 			
-			<!-- Nav Bar -->
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href=".">Car Data</a>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavBar">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href=".">Introduction</a></li>
-							<li><a href="company">Data By Car Company</a></li>
-							<li><a href="year">Data By Year</a></li>
-							<li><a href="graph">MPG Graph</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
 		</body>
 </html>
