@@ -12,11 +12,32 @@ def render_page1():
 
 @app.route("/year")
 def render_page2():
-    return render_template('byYear.html')
-
+    with open('static/cars.json') as demographicsdata:
+        cars = json.load(demographicsdata)
+    
+    reply_list = get_state_options(cars)
+    
+    """
+    if 'State' in request.args:
+        return render_template('home.html', options = reply_list, fact = fact_function(request.args["State"]), reply_state = request.args["State"]) 
+    """
+    return render_template('home.html' , options = reply_list)
+   """
+   return render_template('byYear.html')
+    """
 @app.route("/graph")
 def render_page3():
     return render_template('graph.html')
+    with open('static/cars.json') as demographicsdata:
+        cars = json.load(demographicsdata)
+    
+    reply_list = get_state_options(cars)
+    
+    """
+    if 'State' in request.args:
+        return render_template('home.html', options = reply_list, fact = fact_function(request.args["State"]), reply_state = request.args["State"]) 
+    """
+    return render_template('home.html' , options = reply_list)
     
 if __name__=="__main__":
     app.run(debug=True, port=54321)
