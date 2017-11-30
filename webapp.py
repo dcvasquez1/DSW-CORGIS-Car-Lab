@@ -10,11 +10,12 @@ def render_main():
     
 @app.route("/company")
 def render_page1():
+
     return render_template('graph.html')
     with open('static/cars.json') as demographicsdata:
         cars = json.load(demographicsdata)
     
-    reply_list = get_state_options(cars)
+    reply_list = get_car_options_company(cars)
     
     """
     if 'State' in request.args:
@@ -24,10 +25,11 @@ def render_page1():
 
 @app.route("/year")
 def render_page2():
+
     with open('static/cars.json') as demographicsdata:
         cars = json.load(demographicsdata)
     
-    reply_list = get_state_options(cars)
+    reply_list = get_car_options_year(cars)
     
     """
     if 'State' in request.args:
@@ -40,6 +42,24 @@ def render_page2():
 @app.route("/graph")
 def render_page3():
     return render_template('graph.html')
+    
+def get_car_options_company(cars):
+    companies = []
+    options = ""
+    for c in cars:
+        if c["Identification"]["Make"] not in companies:
+            companies.append(c["Identification"]["Make"])
+            options += Markup("<option value=\"" + c["Identification"]["Make"] + "\">" + c["Identification"]["Make"] + "</option>")
+    return options
+    
+def get_car_options_year(cars):
+    years = []
+    options = ""
+    for c in cars:
+        if c["Identification"]["Year"] not in years:
+            years.append(c["Identification"]["Year"])
+            options += Markup("<option value=\"" + c["Identification"]["Year"] + "\">" + c["Identification"]["Year"] + "</option>")
+    return options
     
 if __name__=="__main__":
     app.run(debug=True, port=54321)
