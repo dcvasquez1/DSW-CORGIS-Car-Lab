@@ -41,7 +41,7 @@ def get_car_options_company(cars):
     companies = sorted(companies)
     
     for i in companies:
-        options += Markup("<option value=\"" + companies[i] + "\">" + companies[i] + "</option>")
+        options += Markup("<option value=\"" + i + "\">" + i + "</option>")
     return options
     
 def get_car_options_year(cars):
@@ -53,7 +53,7 @@ def get_car_options_year(cars):
     years.sort
     
     for i in years:
-        options += Markup("<option value=\"" + str(years[i]) + "\">" + str(years[i]) + "</option>")
+        options += Markup("<option value=\"" + str(i) + "\">" + str(i) + "</option>")
     return options
     
 if __name__=="__main__":
