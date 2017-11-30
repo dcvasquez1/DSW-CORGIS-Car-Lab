@@ -38,7 +38,7 @@ def get_car_options_company(cars):
     for c in cars:
         if c["Identification"]["Make"] not in companies:
             companies.append(c["Identification"]["Make"])
-    companies = sorted(companies)
+    companies = sorted(companies,key=str.lower)
     
     for i in companies:
         options += Markup("<option value=\"" + i + "\">" + i + "</option>")
@@ -50,7 +50,7 @@ def get_car_options_year(cars):
     for c in cars:
         if c["Identification"]["Year"] not in years:
             years.append(c["Identification"]["Year"])
-    years.sort
+    years = sorted(years)
     
     for i in years:
         options += Markup("<option value=\"" + str(i) + "\">" + str(i) + "</option>")
