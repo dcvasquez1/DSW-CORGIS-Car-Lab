@@ -16,7 +16,7 @@ def render_page1():
     
     reply_list = get_car_options_company(cars)
 
-    return render_template('byCompany.html' , options = reply_list)
+    return render_template('byCompany.html', options = reply_list)
 
 @app.route("/year")
 def render_page2():
@@ -26,7 +26,7 @@ def render_page2():
     
     reply_list = get_car_options_year(cars)
     
-    return render_template('byYear.html' , options = reply_list)
+    return render_template('byYear.html', options = reply_list)
 
 @app.route("/graph")
 def render_page3():
@@ -47,7 +47,7 @@ def get_car_options_year(cars):
     for c in cars:
         if c["Identification"]["Year"] not in years:
             years.append(c["Identification"]["Year"])
-            options += Markup("<option value=\"" + c["Identification"]["Year"] + "\">" + c["Identification"]["Year"] + "</option>")
+            options += Markup("<option value=\"" + str(c["Identification"]["Year"]) + "\">" + str(c["Identification"]["Year"]) + "</option>")
     return options
     
 if __name__=="__main__":
