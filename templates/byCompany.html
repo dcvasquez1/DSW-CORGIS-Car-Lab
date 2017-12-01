@@ -46,6 +46,10 @@
 				<br>
 				<input type="submit">
 			</form>
-		
+			
+			{% if reply_Company is defined %}
+				<p>data pass successful Company: {{reply_Company}} Number of Cars: {{fact_dictionary["Number of Cars Made"]}}
+			{% endif %}
+			
 		</body>
 </html>

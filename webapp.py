@@ -15,7 +15,10 @@ def render_page1():
         cars = json.load(demographicsdata)
     
     reply_list = get_car_options_company(cars)
-
+    
+    if 'Company' in request.args:        
+        return render_template('byCompany.html', options = reply_list, reply_Company = request.args["Company"], fact_dictionary = get_car_facts_company(cars, request.args["Company"]))
+    
     return render_template('byCompany.html', options = reply_list)
 
 @app.route("/year")
@@ -55,6 +58,35 @@ def get_car_options_year(cars):
     for i in years:
         options += Markup("<option value=\"" + str(i) + "\">" + str(i) + "</option>")
     return options
+
+
+def get_car_facts_company(cars, company):
+    carsMade = 0
+    avgMPG_Highway = 0
+    avgMPG_City = 0
+    avgHorsepower = 0
+    numberManual = 0
+    numberAutomatic = 0
+    
+    for c in cars:
+        if c["Identification"]["Make"] == company:
+            carsMade += 1
+            avgMPG_City += c["Fuel Information"]["City mpg"]
+            avgMPG_Highway += c["Fuel Information"]["Highway mpg"]
+            avgHorsepower += c["Engine Information"]["Engine Statistics"]["Horsepower"]
+            if c["Identification"]["Classification"] == "Automatic transmission":
+                numerAutomatic += 1
+            else:
+                numberManual += 1
+    avgHorsepower = avgHorsepower / carsMade
+    avgMPG_City = avgMPG_City / carsMade
+    avgMPG_Highway = avgMPG_Highway / carsMade
+    
+    return {"Number of Cars Made": carsMade, "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
+    
+def get_car_facts_year(cars, year):
+    
+    
     
 if __name__=="__main__":
     app.run(debug=True, port=54321)
