@@ -83,10 +83,10 @@ def get_car_facts_company(cars, company):
     avgMPG_Highway = avgMPG_Highway / carsMade
     
     return {"Number of Cars Made": carsMade, "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
-    
+    """
 def get_car_facts_year(cars, year):
     
-    
+    """
     
 if __name__=="__main__":
     app.run(debug=True, port=54321)
