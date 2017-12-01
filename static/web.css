@@ -38,7 +38,7 @@ p {
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-	background-color: #0080ff;
+	background-color: #0040ff;
 	color: #ffffff;
 }
 
