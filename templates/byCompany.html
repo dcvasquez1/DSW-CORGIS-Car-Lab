@@ -39,7 +39,7 @@
 			<h1>Data by Company</h1>
 			<h2>Select a Car Company</h2>
 			
-			<form action="/byCompany.html">
+			<form action="/company">
 				<select name= "Company">
 					{{options}}
 				</select>
@@ -47,8 +47,8 @@
 				<input type="submit">
 			</form>
 			
-			{% if reply_Company is defined %}
-				<p>data pass successful Company: {{reply_Company}} Number of Cars: {{fact_dictionary["Number of Cars Made"]}}</p>
+			{% if reply_company is defined %}
+				<p>data pass successful Company: {{reply_company}} Number of Cars: {{fact_dictionary["Number of Cars Made"]}}</p>
 			{% endif %}
 			
 		</body>

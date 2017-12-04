@@ -17,7 +17,7 @@ def render_page1():
     reply_list = get_car_options_company(cars)
     
     if 'Company' in request.args:        
-        return render_template('byCompany.html', options = reply_list, reply_Company = request.args["Company"], fact_dictionary = get_car_facts_company(cars, request.args["Company"]))
+        return render_template('byCompany.html', options = reply_list, reply_company = request.args["Company"], fact_dictionary = get_car_facts_company(request.args["Company"]))
     
     return render_template('byCompany.html', options = reply_list)
 
@@ -60,7 +60,10 @@ def get_car_options_year(cars):
     return options
 
 
-def get_car_facts_company(cars, company):
+def get_car_facts_company(company):
+    with open('static/cars.json') as demographicsdata:
+        cars = json.load(demographicsdata)
+        
     carsMade = 0
     avgMPG_Highway = 0
     avgMPG_City = 0
