@@ -60,9 +60,7 @@ def get_car_options_year(cars):
     return options
 
 
-def get_car_facts_company(company):
-    with open('static/cars.json') as demographicsdata:
-        cars = json.load(demographicsdata)
+def get_car_facts_company(cars, company):
         
     carsMade = 0
     avgMPG_Highway = 0
