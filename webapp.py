@@ -15,10 +15,10 @@ def render_page1():
         cars = json.load(demographicsdata)
     
     reply_list = get_car_options_company(cars)
-    
+    """
     if 'Company' in request.args:        
         return render_template('byCompany.html', options = reply_list, reply_company = request.args["Company"], fact_dictionary = get_car_facts_company(request.args["Company"]))
-    
+    """
     return render_template('byCompany.html', options = reply_list)
 
 @app.route("/year")
@@ -85,8 +85,8 @@ def get_car_facts_company(company):
     avgMPG_City = avgMPG_City / carsMade
     avgMPG_Highway = avgMPG_Highway / carsMade
     
-    return {"Number of Cars Made": 5} """carsMade , "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
-    
+    return {"Number of Cars Made": carsMade , "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
+    """
 def get_car_facts_year(cars, year):
     
     """
