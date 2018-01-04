@@ -69,7 +69,10 @@ def get_car_options_year(cars):
 
 
 def get_car_facts_company(cars, company):
-        
+            
+    with open('static/cars.json') as demographicsdata:
+        cars = json.load(demographicsdata)
+    
     carsMade = 0
     avgMPG_Highway = 0
     avgMPG_City = 0
@@ -87,6 +90,7 @@ def get_car_facts_company(cars, company):
                 numerAutomatic += 1
             else:
                 numberManual += 1
+                
     avgHorsepower = avgHorsepower / carsMade
     avgMPG_City = avgMPG_City / carsMade
     avgMPG_Highway = avgMPG_Highway / carsMade
