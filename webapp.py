@@ -6,7 +6,7 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 
 @app.route("/")
 def render_main():
-
+"""
     if 'company_request' in request.args:
         with open('static/cars.json') as demographicsdata:
             cars = json.load(demographicsdata)
@@ -14,7 +14,7 @@ def render_main():
         reply_list = get_car_options_company(cars)
         
         return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) )
-    
+   """ 
     return render_template('introduction.html')
     
 @app.route("/company")
