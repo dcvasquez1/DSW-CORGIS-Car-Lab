@@ -6,14 +6,14 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 
 @app.route("/")
 def render_main():
-    with open('static/cars.json') as demographicsdata:
-        cars = json.load(demographicsdata)
-    
-    reply_list = get_car_options_company(cars)
-    
+"""
     if 'company_request' in request.args:
-        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) )
+        with open('static/cars.json') as demographicsdata:
+            cars = json.load(demographicsdata)
     
+            reply_list = get_car_options_company(cars)
+        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) )
+"""    
     return render_template('introduction.html')
     
 @app.route("/company")
@@ -92,6 +92,7 @@ def get_car_facts_company(cars, company):
     avgMPG_Highway = avgMPG_Highway / carsMade
     
     return {"Number of Cars Made": carsMade , "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
+    
     """
 def get_car_facts_year(cars, year):
     
