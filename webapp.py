@@ -80,7 +80,7 @@ def get_car_facts_company(cars, company):
     for c in cars:
         if c["Identification"]["Make"] == company:
             carsMade += 1
-            avgMPG_City += c["Fuel Information"]["City mpg"]
+            avgMPG_City += c["Fuel Information"]["City mph"]
             avgMPG_Highway += c["Fuel Information"]["Highway mpg"]
             avgHorsepower += c["Engine Information"]["Engine Statistics"]["Horsepower"]
             if c["Identification"]["Classification"] == "Automatic transmission":
