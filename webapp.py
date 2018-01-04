@@ -25,7 +25,7 @@ def render_page1():
     reply_list = get_car_options_company(cars)
     
     if 'company_request' in request.args:
-        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] """ , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) """ )
+        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) )
     
     return render_template('byCompany.html', options = reply_list)
 
@@ -90,8 +90,17 @@ def get_car_facts_company(cars, company):
     avgHorsepower = avgHorsepower / carsMade
     avgMPG_City = avgMPG_City / carsMade
     avgMPG_Highway = avgMPG_Highway / carsMade
+    fact_dictionary = {}
     
-    return {"Number of Cars Made": carsMade , "Number of Manual Transmission Cars Made": numberManual, "Number of Automatic Transmission Cars Made": numberAutomatic, "Average Highway MPG": avgMPG_Highway, "Average City MPG": avgMPG_City, "Average Horsepower": avgHorsepower}
+    fact_dictionary["Number of Cars Made"] = carsMade
+    fact_dictionary["Number of Manual Transmission Cars Made"] = numberManual
+    fact_dictionary["Number of Automatic Transmission Cars Made"] = numberAutomatic
+    fact_dictionary["Average Highway MPG"] = avgMPG_Highway
+    fact_dictionary["Average City MPG"] = avgMPG_City
+    fact_dictionary["Average Horsepower"] = avgHorsepower
+    
+    return fact_dictionary
+    
     """
 def get_car_facts_year(cars, year):
     
