@@ -25,7 +25,7 @@ def render_page1():
     reply_list = get_car_options_company(cars)
     
     if 'company_request' in request.args:
-        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) )
+        return render_template( 'byCompany.html' , options = reply_list , reply_company = request.args["company_request"] """ , fact_dictionary = get_car_facts_company( cars, request.args["company_request"]) """ )
     
     return render_template('byCompany.html', options = reply_list)
 
