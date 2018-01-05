@@ -48,7 +48,13 @@
 			</form>
 			
 			{% if reply_company is defined %}
-				<p> data pass successful Company: {{reply_company}} Number of Cars: {{fact_dictionary["Number of Cars Made"]}} </p>
+				<p> Company: {{reply_company}} </p> 
+				<p> Number of Cars: {{fact_dictionary["Number of Cars Made"]}} </p>
+				<p> Number of Manual Transmission Cars Made: {{fact_dictionary["Number of Manual Transmission Cars Made"]}} </p>
+				<p> Number of Automatic Transmission Cars Made: {{fact_dictionary["Number of Automatic Transmission Cars Made"]}} </p>
+				<p> Average Highway MPG: {{fact_dictionary["Average Highway MPG"]}} </p>
+				<p> Average City MPG: {{fact_dictionary["Average City MPG"]}} </p>
+				<p> Average Horsepower: {{fact_dictionary["Average Horsepower"]}} </p>
 			{% endif %}
 			
 		</body>

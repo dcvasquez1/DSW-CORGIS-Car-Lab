@@ -40,12 +40,22 @@
 			<h2>Select Year</h2>
 			
 			<form action=".">
-				<select name= "Year">
+				<select name= "year_request">
 					{{options}}
 				</select>
 				<br>
 				<input type="submit">
 			</form>
-		
+			
+			{% if reply_year is defined %}
+				<p> Year: {{reply_year}} </p> 
+				<p> Number of Cars: {{fact_dictionary["Number of Cars Made"]}} </p>
+				<p> Number of Manual Transmission Cars Made: {{fact_dictionary["Number of Manual Transmission Cars Made"]}} </p>
+				<p> Number of Automatic Transmission Cars Made: {{fact_dictionary["Number of Automatic Transmission Cars Made"]}} </p>
+				<p> Average Highway MPG: {{fact_dictionary["Average Highway MPG"]}} </p>
+				<p> Average City MPG: {{fact_dictionary["Average City MPG"]}} </p>
+				<p> Average Horsepower: {{fact_dictionary["Average Horsepower"]}} </p>
+			{% endif %}
+			
 		</body>
 	</html>
